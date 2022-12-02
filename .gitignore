@@ -4,3 +4,9 @@
 /.vs/AdventOfCode2022/v16
 /.vs/AdventOfCode2022/FileContentIndex
 /Day 1 - Calorie Counting/Debug
+*.log
+*.recipe
+*.ilk
+*.pdb
+*.idb
+*.obj
