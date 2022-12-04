@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{26e39a2e-6dfd-43a3-ab4d-b1b598111931}</ProjectGuid>
-    <RootNamespace>Day_2___Rock_Paper_Scissors</RootNamespace>
+    <ProjectGuid>{54740c8f-27ac-4ff1-99b6-62ac309cf65a}</ProjectGuid>
+    <RootNamespace>Day_4___Camp_Cleanup</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
