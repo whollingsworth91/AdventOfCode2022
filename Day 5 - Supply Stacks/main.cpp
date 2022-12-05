@@ -31,7 +31,7 @@ public:
 	std::string getTopLetterOfEachColumn() {
 		std::string ret;
 
-		for (int i = 0; i < m_columns.size(); i++) {
+		for (size_t i = 0; i < m_columns.size(); i++) {
 			ret += m_columns.at(i).front().getLetter();
 		}
 
@@ -42,7 +42,7 @@ public:
 		m_columns.at(column).push_back(crate);
 	}
 
-	void moveCrate(size_t numToMove, size_t fromColumnIdx, size_t toColumnIdx) {
+	void moveCratesOneByOne(size_t numToMove, size_t fromColumnIdx, size_t toColumnIdx) {
 		_ASSERT(m_columns.size() > 0 && m_columns.size() >= fromColumnIdx && m_columns.size() >= toColumnIdx);
 
 		for (size_t i = 0; i < numToMove; i++) {
@@ -81,22 +81,21 @@ std::string getAnswer1(std::string fpath)
 	// parse file for loading bay
 	std::string line;
 	std::string garbage;
-	LoadingBay loadingBay;
-	int howManyToMove = 0;
+	LoadingBay loadingBay = LoadingBay(9);// line.size() / 4);
+	int numOfCratesToMove = 0;
 	int fromColumnIdx = 0;
 	int toColumnIdx = 0;
-	loadingBay = LoadingBay(9);// line.size() / 4);
 
 	while (std::getline(input, line))
 	{
 		// process input
 		if (strcmp(line.substr(0, 4).c_str(), "move") == 0) {
 			std::istringstream iss(line);
-			if (!(iss >> garbage >> howManyToMove >> garbage >> fromColumnIdx >> garbage >> toColumnIdx)) {
+			if (!(iss >> garbage >> numOfCratesToMove >> garbage >> fromColumnIdx >> garbage >> toColumnIdx)) {
 				break; // error
 			}
 
-			loadingBay.moveCrate(howManyToMove, fromColumnIdx - 1, toColumnIdx - 1); // 0-based array indices
+			loadingBay.moveCratesOneByOne(numOfCratesToMove, fromColumnIdx - 1, toColumnIdx - 1); // 0-based array indices
 		}
 		else {
 			std::vector<std::pair<int, Crate>> rowColumn = std::vector<std::pair<int, Crate>>();
@@ -135,11 +134,10 @@ std::string getAnswer2(std::string fpath)
 	// parse file for loading bay
 	std::string line;
 	std::string garbage;
-	LoadingBay loadingBay;
+	LoadingBay loadingBay = LoadingBay(9);// line.size() / 4);
 	int howManyToMove = 0;
 	int fromColumnIdx = 0;
 	int toColumnIdx = 0;
-	loadingBay = LoadingBay(9);// line.size() / 4);
 
 	while (std::getline(input, line))
 	{
