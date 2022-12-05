@@ -67,7 +67,7 @@ public:
 	}
 };
 
-// part 1: After the rearrangement procedure completes, what crate ends up on top of each stack?
+// part 1: After the rearrangement procedure completes, what crate ends up on top of each stack when using the CrateMaster 9000?
 std::string getAnswer1(std::string fpath)
 {
 	// open file for parsing
@@ -121,7 +121,7 @@ std::string getAnswer1(std::string fpath)
 	return loadingBay.getTopLetterOfEachColumn();
 }
 
-// part 2: ?
+// part 2: After the rearrangement procedure completes, what crate ends up on top of each stack when using the CrateMaster 9001?
 std::string getAnswer2(std::string fpath)
 {
 	// open file for parsing
