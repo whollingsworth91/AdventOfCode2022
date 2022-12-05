@@ -98,14 +98,11 @@ std::string getAnswer1(std::string fpath)
 			loadingBay.moveCratesOneByOne(numOfCratesToMove, fromColumnIdx - 1, toColumnIdx - 1); // 0-based array indices
 		}
 		else {
-			std::vector<std::pair<int, Crate>> rowColumn = std::vector<std::pair<int, Crate>>();
-
 			for (size_t i = 0; i < line.size(); i++) {
 				if (i % 4 == 0) {
 					std::string crateLetterStr = line.substr(i, 4);
 					if (crateLetterStr.at(0) == '[') {
 						char crateLetter = crateLetterStr.at(1);
-						rowColumn.push_back(std::pair<int, Crate>((i/4) + 1, Crate(crateLetter)));
 						loadingBay.addCrate(0, (i / 4), Crate(crateLetter)); // 0-based array indices
 					}
 				}
@@ -151,14 +148,11 @@ std::string getAnswer2(std::string fpath)
 			loadingBay.moveCrateRange(howManyToMove, fromColumnIdx - 1, toColumnIdx - 1); // 0-based array indices
 		}
 		else {
-			std::vector<std::pair<int, Crate>> rowColumn = std::vector<std::pair<int, Crate>>();
-
 			for (size_t i = 0; i < line.size(); i++) {
 				if (i % 4 == 0) {
 					std::string crateLetterStr = line.substr(i, 4);
 					if (crateLetterStr.at(0) == '[') {
 						char crateLetter = crateLetterStr.at(1);
-						rowColumn.push_back(std::pair<int, Crate>((i / 4) + 1, Crate(crateLetter)));
 						loadingBay.addCrate(0, (i / 4), Crate(crateLetter)); // 0-based array indices
 					}
 				}
